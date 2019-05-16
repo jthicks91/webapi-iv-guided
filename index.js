@@ -1,5 +1,10 @@
-const server = require('./api/server.js');
+require("dotenv").config(); // to make enviornment variables MUST BE AT VERY TOP OF INDEX.JS FILE
+console.log("process env", process.env);
 
-server.listen(4000, () => {
-  console.log('\n*** Server Running on http://localhost:4000 ***\n');
+const server = require("./api/server.js");
+
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, () => {
+  console.log("\n*** Server Running on port ${PORT} ***\n");
 });
